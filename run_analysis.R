@@ -53,6 +53,6 @@ activity_meanstd <- mutate(activity_meanstd,activity_code=activity_label$V1,subj
 df <- group_by(activity_meanstd,activity_code,subject_code)
 
 #calculating the mean of variables based on each group
-final_ds <- summarise_each(activity_meanstd,funs(mean))
+final_ds <- summarise_each(final_ds,funs(mean))
 
 
