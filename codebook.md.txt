@@ -1,0 +1,15 @@
+##This document contains the details about the approach taken to convert the human activity dataset to a tidy dataset
+1.The variable names of training and test dataset were extracted from the file features.txt and was stored in the variable "features"
+2. The data from test and training files were loaded into the datasets "test" and "train" respectively.
+3. The train and test datsets were given variable names from the features dataset.
+4. The "test" and "train" datsets were merged using rbind function to create dataset "activity" thus acheiving task 1
+5 . For convenience we skipped to task 3 to give meaningful names to the variable names using the make.names() function
+6. Created the meanM and stdm by extracting only the cols containing mean and standard deviation respectively. These two datsets were again merged to create the new dataset activity_meanstd thus acheiving task 2
+8. For task 4 labels were created;below are the details
+	train_label --> reads the activity label code(from 1 to 6) for training data
+	test_label -->	reads the activity label code(from 1 to 6) for test data
+	train_subject--> reads the subject label code for training data
+	test_subject -->reads the subject label code for test data
+   The labels corresponding to subhjet and activity were merged to create a single subject and activity label respectively
+   The "subject_label" and "activity_label" were added as columns to the activity_meanstd dataset
+9. For task 5 the updated "activity_meanstd" dataset was grouped by activty_label and subject_label to calculate mean for each label. Then summarise function was used to calculate the mean for each activity and subject to populate the final dataset final_ds
